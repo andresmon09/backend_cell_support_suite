@@ -12,7 +12,7 @@
       public function consulta(){
         $con = "SELECT p.*, c.nombre AS categorias, pr.nombre AS proveedor FROM productos p
                 INNER JOIN categorias c ON p.fo_categorias = c.id_categorias
-                INNER JOIN proveedor pr ON p.fo_proveedor = pr.id_proveedor
+                INNER JOIN proveedor pr ON p.fo_proveedor = pr.id_prov
                 ORDER BY p.nombre";
         $res = mysqli_query($this->conexion, $con);
         $vec = [];
@@ -68,7 +68,4 @@
 
 
    }
-
-
-
 ?>

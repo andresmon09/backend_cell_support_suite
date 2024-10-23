@@ -11,7 +11,7 @@
 
     switch ($control) {
         case 'consulta';
-           $vec = $prod->consulta();
+           $vec = $productos->consulta();
         break;
         case 'insertar';
            $json = file_get_contents('php://input');
