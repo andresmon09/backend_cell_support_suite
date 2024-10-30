@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
    class productos{
     //atributo
       public $conexion;
@@ -23,7 +24,7 @@
         return $vec;
       }
       public function eliminar ($id){
-        $del = "DELETE FROM productos WHERE id_productos = $id";
+        $del = "DELETE FROM productos WHERE id_producto = $id";
         mysqli_query($this->conexion, $del);
         $vec = [];
         $vec['resultado'] = "OK";
@@ -37,16 +38,16 @@
       mysqli_query($this->conexion, $ins);
         $vec = [];
         $vec[ 'resultado'] = "OK";
-        $vec[ 'mensaje'] = "El productos ha sido guardada";
+        $vec[ 'mensaje'] = "El producto ha sido guardado";
         return $vec;
       }  
 
       public function editar($id, $params){
-        $editar = "UPDATE productos SET nombre = '$params->nombre', descripcion = '$params->descripcion', precio = '$params->precio', stock = '$params->stock', fo_categorias = '$params->fo_categorias', fo_proveedor = '$params->fp_proveedor' WHERE id_productos = $id";
+        $editar = "UPDATE productos SET nombre = '$params->nombre', descripcion = '$params->descripcion', precio = '$params->precio', stock = '$params->stock', fo_categorias = '$params->fo_categorias', fo_proveedor = '$params->fo_proveedor' WHERE id_producto = $id";
         mysqli_query($this->conexion, $editar);
         $vec = [];
         $vec[ 'resultado'] = "OK";
-        $vec[ 'mensaje'] = "El productos ha sido editada";
+        $vec[ 'mensaje'] = "El producto ha sido editado";
         return $vec;
       }
 
@@ -62,10 +63,8 @@
         while($row = mysqli_fetch_array($res)){
             $vec[] = $row;
         }
-
         return $vec;
       }
-
-
+      
    }
 ?>
